@@ -10,10 +10,9 @@
       prompt: "Enter the new password"
       private: no
 
-  tasks:
-    - name: Create new user account
-      cisco.ios.ios_user:
-        name: "{{ new_username }}"
-        password: "{{ new_password }}"
-        privilege: 15
-        state: present
+- name: Create new user account
+  cisco.ios.ios_user:
+      name: "{{ new_username }}"
+      password: "{{ new_password }}"
+      privilege: 15
+      state: present
