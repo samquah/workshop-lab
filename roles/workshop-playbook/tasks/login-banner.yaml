@@ -1,0 +1,12 @@
+---
+- name: Set login banner
+  cisco.ios.ios_banner module:
+    banner: login
+    text: " 
+      #####################################################\n
+      #                                                   #\n
+      #    You have successfully entered this system.     #\n
+      #                                                   #\n
+      #       Contaccct admin at admin@example.com        #\n
+      #####################################################"
+    state: present

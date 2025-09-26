@@ -1,3 +1,6 @@
 ---
- - name: "Task 1: Gather facts"
-   import_tasks: gather_facts.yaml
+# - name: "Task 1: Gather facts"
+#   import_tasks: gather_facts.yaml
+
+- name: "Task 2 Set login banner"
+  import_tasks: login-banner.yaml
