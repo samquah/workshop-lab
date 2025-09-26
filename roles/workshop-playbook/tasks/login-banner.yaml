@@ -1,6 +1,6 @@
 ---
 - name: Set login banner
-  cisco.ios.ios_banner module:
+  cisco.ios.ios_banner:
     banner: login
     text: " 
       #####################################################\n
