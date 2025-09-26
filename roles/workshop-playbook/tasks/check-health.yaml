@@ -1,0 +1,31 @@
+---
+- name: Check cpu utilization
+  cisco.ios.ios_facts:
+    gather_subset: hardware
+
+- name: Print output     
+  debug:
+    msg:
+     - "CPU 5-sec utilization: {{ ansible_net_cpu_utilization['5_sec'] }}%"
+
+
+- name: Add host to critical list if CPU > threshold
+  set_fact:
+    critical_hosts: "{{ critical_hosts | default([]) + [ansible_net_hostname] }}"
+  when: ansible_net_cpu_utilization['5_sec'] > cpu_threshold
+
+- name: Show critical hosts
+  debug:
+    msg: "Critical hosts: {{ critical_hosts | default([]) }}"
+
+- name: Ask for admin approval before reboot
+  pause:
+    prompt: "Do you approve reboot of critical hosts? Type 'yes' to continue"
+  register: reboot_approval
+
+- name: Reboot critical hosts if approved
+  cisco.ios.ios_command:
+    commands: reload
+  when:
+    - cpu_facts.ansible_facts.ansible_net_hostname in critical_hosts | default([])
+    - reboot_approval.user_input == "yes"
