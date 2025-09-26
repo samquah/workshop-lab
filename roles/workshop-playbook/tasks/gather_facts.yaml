@@ -1,0 +1,11 @@
+---
+- name: Gather facts from Cisco IOS devices
+  cisco.ios.ios_facts:
+    gather_subset: all
+    debug:
+      msg:
+          - "Hostname: {{ ansible_net_hostname }}"
+          - "OS Version: {{ ansible_net_version }}"
+          - "Model: {{ ansible_net_model }}"
+
+

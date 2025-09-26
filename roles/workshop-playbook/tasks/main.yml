@@ -1,0 +1,3 @@
+---
+ - name: "Task 1: Gather facts"
+   import_tasks: gather_facts.yaml
