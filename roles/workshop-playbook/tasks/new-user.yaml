@@ -1,7 +1,6 @@
 - name: Create new user on routers
   hosts: routers
   gather_facts: no
-  connection: network_cli
   
   vars_prompt: 
     - name: "new_username"
