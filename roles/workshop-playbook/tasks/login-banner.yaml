@@ -2,7 +2,7 @@
 - name: Set login banner
   cisco.ios.ios_banner:
     banner: login
-    multiline_delmiter: '%'
+    multiline_delimiter: '%'
     text: " 
       #####################################################\n
       #                                                   #\n
