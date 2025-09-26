@@ -7,6 +7,6 @@
       #                                                   #\n
       #    You have successfully entered this system.     #\n
       #                                                   #\n
-      #       Contaccct admin at admin@example.com        #\n
+      #       Contact admin at adminexample.com           #\n
       #####################################################"
     state: present
